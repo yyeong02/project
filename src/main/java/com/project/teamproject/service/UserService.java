@@ -2,21 +2,20 @@ package com.project.teamproject.service;
 
 import com.project.teamproject.domain.entity.UserEntity;
 import com.project.teamproject.domain.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+@RequiredArgsConstructor
 @Service
 public class UserService {
-    @Autowired private UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    public UserEntity create(String id, String pw, String name, boolean location) {
-        UserEntity user = new UserEntity().builder()
-                .id(id)
-                .pw(pw)
-                .name(name)
-                .location(location)
-                .build();
-        userRepository.save(user);
+    public UserEntity create(String id, String pw, String name){
+        UserEntity user = new UserEntity();
+        user.setId(id);
+        user.setPw(pw);
+        user.setName(name);
+        this.userRepository.save(user);
         return user;
     }
 }

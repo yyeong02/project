@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>$Title$</title>
 </head>
 <body>
-    <form method="post" action="/signup" >
-        <label for="id">ID</label><input type="text" id="id" class="signupForm"><br>
-        <label for="pw">PW</label><input type="text" id="pw" class="signupForm"><br>
-        <label for="name">이름</label><input type="text" id="name" class="signupForm"><br>
-        <label for="location">사용자 위치 정보 사용 동의</label><input type="checkbox" id="location">
+    <form th:action="@{/user/signup}" th:object="${userCreateForm}" method="post" >
+        <label for="id">ID</label><input type="text" th:field="*{id}" class="signupForm"><br>
+        <label for="pw">PW</label><input type="text" th:field="*{pw}" class="signupForm"><br>
+        <label for="name">이름</label><input type="text" th:field="*{name}" class="signupForm"><br>
         <button type="submit">가입</button>
     </form>
 </body>
