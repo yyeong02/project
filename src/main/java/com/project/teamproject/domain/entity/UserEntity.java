@@ -1,10 +1,7 @@
 package com.project.teamproject.domain.entity;
 
 import lombok.*;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -14,7 +11,7 @@ public class UserEntity {
     @Column(length = 10, nullable = false)
     private String id;
 
-    @Column(length = 10)
+    @Column
     private String pw;
 
     @Column(length = 10)

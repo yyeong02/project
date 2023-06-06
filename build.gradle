@@ -33,6 +33,11 @@ dependencies {
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation'
 	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
 	implementation 'jakarta.persistence:jakarta.persistence-api'
+
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+	testImplementation 'org.springframework.security:spring-security-test'
+
 }
 
 tasks.named('test') {

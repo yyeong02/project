@@ -3,6 +3,7 @@ package com.project.teamproject.controller;
 import com.project.teamproject.createForm.UserCreateForm;
 import com.project.teamproject.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +23,12 @@ public class UserController {
         return "login";
     }
 
+    @GetMapping("/login/error")
+    public String loginError() {
+        System.out.println("?????LOGIN@@ ERROR???????????");
+        return "error";
+    }
+
     @GetMapping("/signup")
     public String signup(UserCreateForm userCreateForm){
         return "signup";
@@ -32,7 +39,19 @@ public class UserController {
         if (bindingResult.hasErrors()){
             return "signup";
         }
-        userService.create(userCreateForm.getId(),userCreateForm.getPw(),userCreateForm.getName());
-        return "redirect:/";
+
+        try{
+            userService.create(userCreateForm.getId(),userCreateForm.getPw(),userCreateForm.getName());
+        } catch (DataIntegrityViolationException e){
+            e.printStackTrace();
+            bindingResult.reject("signupFailed","This user is already existed");
+            return "signup";
+        } catch (Exception e){
+            e.printStackTrace();
+            bindingResult.reject("signupFailed",e.getMessage());
+            return "signup";
+        }
+
+        return "redirect:/user/login";
     }
 }

@@ -5,6 +5,7 @@
     <title>$Title$</title>
 </head>
 <body>
+    <h1>SIGN UP</h1>
     <form th:action="@{/user/signup}" th:object="${userCreateForm}" method="post" >
         <label for="id">ID</label><input type="text" th:field="*{id}" class="signupForm"><br>
         <label for="pw">PW</label><input type="text" th:field="*{pw}" class="signupForm"><br>

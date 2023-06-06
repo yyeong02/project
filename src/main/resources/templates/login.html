@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>$Title$</title>
 </head>
 <body>
-    <form method="post" action="@{/login}">
-        <label for="id">ID</label><input type="text" id="id" class="loginForm"><br>
-        <label for="pw">PW</label><input type="text" id="pw" class="loginForm"><br>
+    <h1>LOG IN</h1>
+    <form method="post" th:action="@{/user/login}">
+        <label for="username">ID</label><input type="text" id="username" class="loginForm" name="username"><br>
+        <label for="password">PW</label><input type="text" id="password" class="loginForm" name="password"><br>
         <button type="submit">로그인</button>
         <button type="button" onclick="location.href='/user/signup'">회원가입</button>
     </form>
