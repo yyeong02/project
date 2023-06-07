@@ -18,11 +18,4 @@ public class UserEntity {
     private String name;
 
     private boolean location;
-//
-//    @Builder
-//    public UserEntity(String id, String pw, String name) {
-//        this.id = id;
-//        this.pw = pw;
-//        this.name = name;
-//    }
 }

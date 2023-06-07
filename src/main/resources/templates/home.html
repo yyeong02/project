@@ -7,7 +7,7 @@
 <body>
     <h1>Index page</h1>
     <form>
-        <button type="button" onclick="location.href='calendar.html'">달력</button>
+        <button type="button" onclick="location.href='/calendar/'">달력</button>
         <button type="button" onclick="location.href='Map.html'">지도</button>
         <button sec:authorize="isAnonymous()" type="button" onclick="location.href='/user/login'">로그인</button>
         <button sec:authorize="isAuthenticated()" type="button" onclick="location.href='/user/logout'">로그아웃</button>
