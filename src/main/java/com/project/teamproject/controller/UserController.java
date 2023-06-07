@@ -25,7 +25,6 @@ public class UserController {
 
     @GetMapping("/login/error")
     public String loginError() {
-        System.out.println("?????LOGIN@@ ERROR???????????");
         return "error";
     }
 

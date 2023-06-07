@@ -3,11 +3,8 @@ package com.project.teamproject.domain.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -18,7 +15,6 @@ public class CalendarEntity {
     @Column(length = 10, nullable = false)
     private String medicine;
 
-//    shape = JsonFormat.Shape.STRING
     @Column(nullable = false)
     @JsonFormat(pattern="yyyy-MM-dd")
     private Date startdate;
