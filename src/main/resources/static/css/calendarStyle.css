@@ -21,13 +21,17 @@
     max-width: 1000px;
     float: left;
 }
-#divCalendarInfoWrap{
-    min-width: 400px;
+#divCalendarInfo{
+    min-width: 600px;
     float: left;
     background-color: #A6BFFF;
     text-align: center;
 }
-#divCalendarInfo{
+#divCalendarInfo table{
+    margin: 0 auto;
+    background-color: #FFFFFF;
+}
+#divCalendarInfoYear, #divCalendarInfoDate{
     text-align: center;
 }
 
@@ -114,9 +118,12 @@ tbody td{
 }
 
 /* 달력 날짜 선택시 추가 정보 ------------- */
-#divCalendarInfoWrap h3{
+#divCalendarInfo h3{
     font-size: 15pt;
 }
-#divCalendarInfoWrap h2 {
+#divCalendarInfo h2 {
     font-size: 25pt;
+}
+#divCalendarInfo table th, #divCalendarInfo table td{
+    padding: 9px;
 }

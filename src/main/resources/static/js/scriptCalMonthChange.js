@@ -47,8 +47,8 @@ function buildCalendar(){
         }
     }
 
-    let printMsg = "<h3>" + "NO DATE SELECTED" + "</h3>";
-    document.getElementById('divCalendarInfo').innerHTML = printMsg;
+    let printMsg = "NO DATE SELECTED";
+    document.getElementById('divCalendarInfoYear').innerHTML = printMsg;
 }
 
 function leftPad(n){
@@ -66,11 +66,13 @@ function choiceDate(newDiv) {
     newDiv.classList.add("choiceDay");
 
     let printYear = document.getElementById("calYear").innerText
-    printYear = "<h3>" + printYear + "</h3>";
-    document.getElementById('divCalendarInfo').innerHTML = printYear;
+    document.getElementById('divCalendarInfoYear').innerHTML = printYear;
     let printDate = document.getElementById("calMonth").innerText + " . " +newDiv.innerHTML
-    printDate = "<h2>" + printDate + "</h2>";
-    document.getElementById('divCalendarInfo').innerHTML += printDate;
+    document.getElementById('divCalendarInfoDate').innerHTML = printDate;
+
+
+    let temp = document.getElementById("calYear").innerText + "-" +document.getElementById("calMonth").innerText + "-" +newDiv.innerHTML
+    re(temp);
 }
 
 function calPrev(){
@@ -81,4 +83,20 @@ function calPrev(){
 function calNext(){
     nowMonth= new Date(nowMonth.getFullYear(), nowMonth.getMonth()+1,nowMonth.getDate())
     buildCalendar();
+}
+
+function reloadDiv(){
+    $('#info').load(location.href+' #info')
+}
+
+function re(temp){
+    $.ajax({
+        url : "/calendar/?date="+temp,
+        type : "GET",
+        data : $("#updateForm").serialize(),
+        dataType: 'JSON',
+        success : function (data) {
+            console.log("success");
+        }
+    })
 }

@@ -7,7 +7,7 @@ import lombok.Setter;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Date;
+import java.sql.Date;
 
 @Getter
 @Setter
@@ -17,11 +17,11 @@ public class CalendarCreateForm {
     private String medicine;
 
     @NotNull
-    @JsonFormat(pattern="yyyy-MM-dd")
+//    @JsonFormat(pattern="yyyy-MM-dd")
     private Date startdate;
 
     @NotNull
-    @JsonFormat(pattern="yyyy-MM-dd")
+//    @JsonFormat(pattern="yyyy-MM-dd")
     private Date finishdate;
 
     private boolean detail1;

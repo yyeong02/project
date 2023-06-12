@@ -1,13 +1,20 @@
 package com.project.teamproject.service;
 
 import com.project.teamproject.domain.entity.CalendarEntity;
-import com.project.teamproject.domain.entity.UserEntity;
 import com.project.teamproject.domain.repository.CalendarRepository;
-import com.project.teamproject.domain.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.jdbc.datasource.DataSourceUtils;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.List;
+
 
 @RequiredArgsConstructor
 @Service
@@ -15,7 +22,7 @@ public class CalendarService {
 
     private final CalendarRepository calendarRepository;
 
-    public CalendarEntity create(String medicine, Date startdate, Date finishdate, boolean detail1, boolean detail2, boolean detail3,boolean detail4, boolean detail5, String memo){
+    public CalendarEntity create(String medicine, Date startdate, Date finishdate, boolean detail1, boolean detail2, boolean detail3, boolean detail4, boolean detail5, String memo){
         CalendarEntity cal = new CalendarEntity();
         cal.setMedicine(medicine);
         cal.setStartdate(startdate);
@@ -29,4 +36,5 @@ public class CalendarService {
         this.calendarRepository.save(cal);
         return cal;
     }
+
 }

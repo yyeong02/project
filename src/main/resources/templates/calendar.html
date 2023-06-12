@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="/css/calendarStyle.css">
     <script src="/js/scriptCalMonthChange.js"></script>
     <title>Calendar</title>
@@ -33,12 +34,43 @@
             </tbody>
         </table>
     </div>
-    <div id="divCalendarInfoWrap" sec:authorize="isAuthenticated()">
-        <div id="divCalendarInfo">
+<!--    <div id="n" th:replace="~{dataCalendar :: content}"></div>-->
+    <div th:fragment="content" id="divDataCalendar">
+        <div id="divCalendarInfo" sec:authorize="isAuthenticated()">
+            <h3 id="divCalendarInfoYear"></h3>
+            <h2 id="divCalendarInfoDate"></h2>
+<!--            <h3 th:text="${medicine}" id="info">.</h3>-->
+            <table>
+                <thead>
+                <tr>
+                    <th>Medicine</th>
+                    <th>Period</th>
+                    <th></th>
+                    <th>아침</th>
+                    <th>점심</th>
+                    <th>저녁</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="medicines:${medicines}">
+                    <td th:text="${medicines.medicine}">.</td>
+                    <td th:text="${medicines.startdate}">.</td>
+                    <td th:text="${medicines.finishdate}">.</td>
+                    <td th:if="${medicines.detail1}">v</td>
+                    <td th:unless="${medicines.detail1}"></td>
+                    <td th:if="${medicines.detail2}">v</td>
+                    <td th:unless="${medicines.detail2}"></td>
+                    <td th:if="${medicines.detail3}">v</td>
+                    <td th:unless="${medicines.detail3}"></td>
+                    <td th:if="${medicines.detail4}">식전 30분</td>
+                    <td th:if="${medicines.detail5}">식후 30분</td>
+                </tr>
+                </tbody>
+            </table>
+            <button type="button" onclick="location.href='/calendar/add'">+</button>
         </div>
-        <p>DB 연결해서 정보 출력</p>
-        <p>/calendar/add로 이동</p>
-        <button type="button" onclick="location.href='/calendar/add'">+</button>
     </div>
 </div>
 </body>
