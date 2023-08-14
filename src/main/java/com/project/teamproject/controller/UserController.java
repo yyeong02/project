@@ -1,14 +1,18 @@
 package com.project.teamproject.controller;
 
 import com.project.teamproject.createForm.UserCreateForm;
+import com.project.teamproject.domain.entity.UserEntity;
+import com.project.teamproject.service.UserSecurityService;
 import com.project.teamproject.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.validation.Valid;
 
@@ -17,6 +21,7 @@ import javax.validation.Valid;
 @RequestMapping("/user")
 public class UserController {
     private final UserService userService;
+    private final UserSecurityService userSecurityService;
 
     @GetMapping("/login")
     public String login(){
@@ -53,4 +58,10 @@ public class UserController {
 
         return "redirect:/user/login";
     }
+//
+//    @GetMapping("/userid")
+//    @ResponseBody
+//    public String currentUserId(Authentication authentication){
+//        return authentication.getName();
+//    }
 }

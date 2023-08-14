@@ -12,6 +12,10 @@ import java.sql.Date;
 @Getter
 @Setter
 public class CalendarCreateForm {
+
+    @Size(max = 10)
+    private String id;
+
     @NotEmpty
     @Size(max = 10)
     private String medicine;

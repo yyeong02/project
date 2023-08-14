@@ -22,8 +22,9 @@ public class CalendarService {
 
     private final CalendarRepository calendarRepository;
 
-    public CalendarEntity create(String medicine, Date startdate, Date finishdate, boolean detail1, boolean detail2, boolean detail3, boolean detail4, boolean detail5, String memo){
+    public CalendarEntity create(String id, String medicine, Date startdate, Date finishdate, boolean detail1, boolean detail2, boolean detail3, boolean detail4, boolean detail5, String memo){
         CalendarEntity cal = new CalendarEntity();
+        cal.setId(id);
         cal.setMedicine(medicine);
         cal.setStartdate(startdate);
         cal.setFinishdate(finishdate);

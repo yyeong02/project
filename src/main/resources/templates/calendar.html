@@ -34,12 +34,10 @@
             </tbody>
         </table>
     </div>
-<!--    <div id="n" th:replace="~{dataCalendar :: content}"></div>-->
     <div th:fragment="content" id="divDataCalendar">
         <div id="divCalendarInfo" sec:authorize="isAuthenticated()">
             <h3 id="divCalendarInfoYear"></h3>
             <h2 id="divCalendarInfoDate"></h2>
-<!--            <h3 th:text="${medicine}" id="info">.</h3>-->
             <table>
                 <thead>
                 <tr>
@@ -54,18 +52,22 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="medicines:${medicines}">
-                    <td th:text="${medicines.medicine}">.</td>
-                    <td th:text="${medicines.startdate}">.</td>
-                    <td th:text="${medicines.finishdate}">.</td>
-                    <td th:if="${medicines.detail1}">v</td>
-                    <td th:unless="${medicines.detail1}"></td>
-                    <td th:if="${medicines.detail2}">v</td>
-                    <td th:unless="${medicines.detail2}"></td>
-                    <td th:if="${medicines.detail3}">v</td>
-                    <td th:unless="${medicines.detail3}"></td>
-                    <td th:if="${medicines.detail4}">식전 30분</td>
-                    <td th:if="${medicines.detail5}">식후 30분</td>
+                <tr th:each="medicine:${medicines}" th:if="${medicine.id}==${#authentication.name}">
+                    <p id="divTempDate" style="display:none;"></p>
+                    <script th:inline="javascript">
+                        // var d = [[$[medicine.]]]
+                    </script>
+                    <td th:text="${medicine.medicine}">.</td>
+                    <td th:text="${medicine.startdate}">.</td>
+                    <td th:text="${medicine.finishdate}">.</td>
+                    <td th:if="${medicine.detail1}">v</td>
+                    <td th:unless="${medicine.detail1}"></td>
+                    <td th:if="${medicine.detail2}">v</td>
+                    <td th:unless="${medicine.detail2}"></td>
+                    <td th:if="${medicine.detail3}">v</td>
+                    <td th:unless="${medicine.detail3}"></td>
+                    <td th:if="${medicine.detail4}">식전 30분</td>
+                    <td th:if="${medicine.detail5}">식후 30분</td>
                 </tr>
                 </tbody>
             </table>

@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <title>Title</title>
 </head>
 <body>
     <form th:action="@{/calendar/add}" th:object="${calendarCreateForm}" method="POST">
+        <input type="hidden" id="id" class="addForm" name="id" th:value="${#authentication.name}">
+<!--        <label for="id">id</label><input type="text" th:field="*{id}" id="id" class="addForm" name="id"><br>-->
+<!--        *** <label for="id">id</label><input type="text" id="id" class="addForm" name="id" th:value="${#authentication.name}"><br>-->
+
         <label for="medicine">Medicine</label><input type="text" th:field="*{medicine}" id="medicine" class="addForm" name="medicine"><br>
         <label for="startdate">시작 날짜</label><input type="date" th:field="*{startdate}" id="startdate" class="addForm"><br>
         <label for="finishdate">시작 날짜</label><input type="date" th:field="*{finishdate}" id="finishdate" class="addForm"><br>

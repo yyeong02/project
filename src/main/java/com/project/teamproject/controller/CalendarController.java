@@ -42,15 +42,23 @@ public class CalendarController {
 
         Date newDate = date;
 
-        System.out.println("lol");
         System.out.println(date);
         System.out.println(newDate);
         System.out.println(newDate==date);
 
         medicines = calendarRepository.findAll();
 
+        //++
+        java.util.Date d = new java.util.Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        String tempDate = formatter.format(d).toString();
+
         model.addAttribute("medicines",medicines);
         model.addAttribute("newDate",newDate);
+
+        //++
+        model.addAttribute("tempDate",tempDate);
+
         return "calendar";
     }
 
@@ -64,7 +72,7 @@ public class CalendarController {
             return "addCalendar";
         }
         try{
-            calendarService.create(calendarCreateForm.getMedicine(), calendarCreateForm.getStartdate(), calendarCreateForm.getFinishdate(), calendarCreateForm.isDetail1(), calendarCreateForm.isDetail2(), calendarCreateForm.isDetail3(), calendarCreateForm.isDetail4(), calendarCreateForm.isDetail5(), calendarCreateForm.getMemo());
+            calendarService.create(calendarCreateForm.getId(), calendarCreateForm.getMedicine(), calendarCreateForm.getStartdate(), calendarCreateForm.getFinishdate(), calendarCreateForm.isDetail1(), calendarCreateForm.isDetail2(), calendarCreateForm.isDetail3(), calendarCreateForm.isDetail4(), calendarCreateForm.isDetail5(), calendarCreateForm.getMemo());
         } catch (DataIntegrityViolationException e){
             e.printStackTrace();
             bindingResult.reject("addFailed","This user is already existed");

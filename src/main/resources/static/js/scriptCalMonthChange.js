@@ -70,8 +70,8 @@ function choiceDate(newDiv) {
     let printDate = document.getElementById("calMonth").innerText + " . " +newDiv.innerHTML
     document.getElementById('divCalendarInfoDate').innerHTML = printDate;
 
-
     let temp = document.getElementById("calYear").innerText + "-" +document.getElementById("calMonth").innerText + "-" +newDiv.innerHTML
+    document.getElementById("divTempDate").innerText = temp
     re(temp);
 }
 
@@ -83,10 +83,6 @@ function calPrev(){
 function calNext(){
     nowMonth= new Date(nowMonth.getFullYear(), nowMonth.getMonth()+1,nowMonth.getDate())
     buildCalendar();
-}
-
-function reloadDiv(){
-    $('#info').load(location.href+' #info')
 }
 
 function re(temp){

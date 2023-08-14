@@ -12,5 +12,6 @@
         <button sec:authorize="isAnonymous()" type="button" onclick="location.href='/user/login'">로그인</button>
         <button sec:authorize="isAuthenticated()" type="button" onclick="location.href='/user/logout'">로그아웃</button>
     </form>
+    <p sec:authorize="isAuthenticated()" th:text="${#authentication.name}"></p>
 </body>
 </html>

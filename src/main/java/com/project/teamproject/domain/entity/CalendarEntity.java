@@ -11,6 +11,10 @@ import java.sql.Date;
 @Getter
 @Setter
 public class CalendarEntity {
+
+    @Column(length = 10)
+    private String id;
+
     @Id
     @Column(length = 10, nullable = false)
     private String medicine;
