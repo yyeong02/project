@@ -53,10 +53,9 @@
                 </thead>
                 <tbody>
                 <tr th:each="medicine:${medicines}" th:if="${medicine.id}==${#authentication.name}">
-                    <p id="divTempDate" style="display:none;"></p>
-                    <script th:inline="javascript">
-                        // var d = [[$[medicine.]]]
-                    </script>
+<!--                    <p id="divTempDate" style="display:none;"></p>-->
+<!--                    <script th:inline="javascript">-->
+<!--                    </script>-->
                     <td th:text="${medicine.medicine}">.</td>
                     <td th:text="${medicine.startdate}">.</td>
                     <td th:text="${medicine.finishdate}">.</td>

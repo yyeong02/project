@@ -71,7 +71,7 @@ function choiceDate(newDiv) {
     document.getElementById('divCalendarInfoDate').innerHTML = printDate;
 
     let temp = document.getElementById("calYear").innerText + "-" +document.getElementById("calMonth").innerText + "-" +newDiv.innerHTML
-    document.getElementById("divTempDate").innerText = temp
+    // document.getElementById("divTempDate").innerText = temp
     re(temp);
 }
 
