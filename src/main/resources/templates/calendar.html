@@ -53,20 +53,52 @@
                 </thead>
                 <tbody>
                 <tr th:each="medicine:${medicines}" th:if="${medicine.id}==${#authentication.name}">
-<!--                    <p id="divTempDate" style="display:none;"></p>-->
-<!--                    <script th:inline="javascript">-->
-<!--                    </script>-->
-                    <td th:text="${medicine.medicine}">.</td>
-                    <td th:text="${medicine.startdate}">.</td>
-                    <td th:text="${medicine.finishdate}">.</td>
-                    <td th:if="${medicine.detail1}">v</td>
-                    <td th:unless="${medicine.detail1}"></td>
-                    <td th:if="${medicine.detail2}">v</td>
-                    <td th:unless="${medicine.detail2}"></td>
-                    <td th:if="${medicine.detail3}">v</td>
-                    <td th:unless="${medicine.detail3}"></td>
-                    <td th:if="${medicine.detail4}">식전 30분</td>
-                    <td th:if="${medicine.detail5}">식후 30분</td>
+                    <p id="divTempDate" style="display:none;"></p>
+                    <script th:inline="javascript">
+                        var val = [[${medicine}]];
+                        let choiceDate = new Date(document.getElementById("divTempDate").innerText)
+
+                        for(var med of val){
+                            if((choiceDate>=val.startdate) && choiceDate<=val.finishdate){
+                                document.getElementById("td1").innerText = val.medicine;
+                                document.getElementById("td2").innerText = val.startdate;
+                                document.getElementById("td3").innerText = val.finishdate;
+                                document.getElementById("td4").innerText = val.detail1;
+                                document.getElementById("td5").innerText = val.detail2;
+                                document.getElementById("td6").innerText = val.detail3;
+                                document.getElementById("td7").innerText = val.detail4;
+                                document.getElementById("td8").innerText = val.detail5;
+                                document.getElementById("td9").innerText = val.medicine;
+                                document.getElementById("td10").innerText = val.medicine;
+                                document.getElementById("td11").innerText = val.medicine;
+
+                            }
+                        }
+
+
+                    </script>
+                    <td id="td1" th:text="">.</td>
+                    <td id="td2" th:text="">.</td>
+                    <td id="td3" th:text="">.</td>
+                    <td id="td4" th:if="">v</td>
+                    <td id="td5" th:unless=""></td>
+                    <td id="td6" th:if="">v</td>
+                    <td id="td7" th:unless=""></td>
+                    <td id="td8" th:if="">v</td>
+                    <td id="td9" th:unless=""></td>
+                    <td id="td10" th:if="">식전 30분</td>
+                    <td id="td11" th:if="">식후 30분</td>
+<!--                    <td th:text="${medicine.medicine}">.</td>-->
+<!--                    <td th:text="${medicine.startdate}">.</td>-->
+<!--                    <td th:text="${medicine.finishdate}">.</td>-->
+<!--                    <td th:if="${medicine.detail1}">v</td>-->
+<!--                    <td th:unless="${medicine.detail1}"></td>-->
+<!--                    <td th:if="${medicine.detail2}">v</td>-->
+<!--                    <td th:unless="${medicine.detail2}"></td>-->
+<!--                    <td th:if="${medicine.detail3}">v</td>-->
+<!--                    <td th:unless="${medicine.detail3}"></td>-->
+<!--                    <td th:if="${medicine.detail4}">식전 30분</td>-->
+<!--                    <td th:if="${medicine.detail5}">식후 30분</td>-->
                 </tr>
                 </tbody>
             </table>
