@@ -58,10 +58,4 @@ public class UserController {
 
         return "redirect:/user/login";
     }
-//
-//    @GetMapping("/userid")
-//    @ResponseBody
-//    public String currentUserId(Authentication authentication){
-//        return authentication.getName();
-//    }
 }

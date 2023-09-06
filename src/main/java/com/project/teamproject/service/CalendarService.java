@@ -9,11 +9,13 @@ import org.springframework.jdbc.datasource.DataSourceUtils;
 import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
+import javax.transaction.Transactional;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
+import java.util.Optional;
 
 
 @RequiredArgsConstructor
@@ -22,8 +24,9 @@ public class CalendarService {
 
     private final CalendarRepository calendarRepository;
 
-    public CalendarEntity create(String id, String medicine, Date startdate, Date finishdate, boolean detail1, boolean detail2, boolean detail3, boolean detail4, boolean detail5, String memo){
+    public CalendarEntity create(int medicineId, String id, String medicine, Date startdate, Date finishdate, boolean detail1, boolean detail2, boolean detail3, boolean detail4, boolean detail5, String memo){
         CalendarEntity cal = new CalendarEntity();
+        cal.setMedicineId(medicineId);
         cal.setId(id);
         cal.setMedicine(medicine);
         cal.setStartdate(startdate);
@@ -36,6 +39,11 @@ public class CalendarService {
         cal.setMemo(memo);
         this.calendarRepository.save(cal);
         return cal;
+    }
+
+    @Transactional
+    public void delete(int medicineId){
+        calendarRepository.deleteByMedicineId(medicineId);
     }
 
 }

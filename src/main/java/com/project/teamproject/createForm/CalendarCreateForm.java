@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.GeneratedValue;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -13,6 +14,10 @@ import java.sql.Date;
 @Setter
 public class CalendarCreateForm {
 
+    @NotNull
+    @GeneratedValue
+    private int medicineId;
+
     @Size(max = 10)
     private String id;
 
@@ -21,11 +26,9 @@ public class CalendarCreateForm {
     private String medicine;
 
     @NotNull
-//    @JsonFormat(pattern="yyyy-MM-dd")
     private Date startdate;
 
     @NotNull
-//    @JsonFormat(pattern="yyyy-MM-dd")
     private Date finishdate;
 
     private boolean detail1;

@@ -12,19 +12,21 @@ import java.sql.Date;
 @Setter
 public class CalendarEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false)
+    private int medicineId;
+
     @Column(length = 10)
     private String id;
 
-    @Id
     @Column(length = 10, nullable = false)
     private String medicine;
 
     @Column(nullable = false)
-//    @JsonFormat(pattern="yyyy-MM-dd")
     private Date startdate;
 
     @Column(nullable = false)
-//    @JsonFormat(pattern="yyyy-MM-dd")
     private Date finishdate;
 
     @Column

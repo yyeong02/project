@@ -6,18 +6,13 @@ import com.project.teamproject.domain.repository.CalendarRepository;
 import com.project.teamproject.service.CalendarService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -31,33 +26,17 @@ public class CalendarController {
     private final CalendarService calendarService;
     private final CalendarRepository calendarRepository;
 
-//    @GetMapping("/")
-//    public String calendar() {
-//        return "calendar";
-//    }
-
     @GetMapping("/")
     public String calendar(Model model, Date date) {
         List<CalendarEntity> medicines = new ArrayList<>();
 
         Date newDate = date;
 
-        System.out.println(date);
-        System.out.println(newDate);
-        System.out.println(newDate==date);
-
         medicines = calendarRepository.findAll();
-
-        //++
         java.util.Date d = new java.util.Date();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        String tempDate = formatter.format(d).toString();
 
         model.addAttribute("medicines",medicines);
-        model.addAttribute("newDate",newDate);
-
-        //++
-        model.addAttribute("tempDate",tempDate);
 
         return "calendar";
     }
@@ -68,11 +47,11 @@ public class CalendarController {
     @PostMapping("/add")
     public String addCalendar(@Valid CalendarCreateForm calendarCreateForm, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            System.out.println("-------------------------------------오류 발생");
+            System.out.println("Error : Adding data to calendar");
             return "addCalendar";
         }
         try{
-            calendarService.create(calendarCreateForm.getId(), calendarCreateForm.getMedicine(), calendarCreateForm.getStartdate(), calendarCreateForm.getFinishdate(), calendarCreateForm.isDetail1(), calendarCreateForm.isDetail2(), calendarCreateForm.isDetail3(), calendarCreateForm.isDetail4(), calendarCreateForm.isDetail5(), calendarCreateForm.getMemo());
+            calendarService.create(calendarCreateForm.getMedicineId(), calendarCreateForm.getId(), calendarCreateForm.getMedicine(), calendarCreateForm.getStartdate(), calendarCreateForm.getFinishdate(), calendarCreateForm.isDetail1(), calendarCreateForm.isDetail2(), calendarCreateForm.isDetail3(), calendarCreateForm.isDetail4(), calendarCreateForm.isDetail5(), calendarCreateForm.getMemo());
         } catch (DataIntegrityViolationException e){
             e.printStackTrace();
             bindingResult.reject("addFailed","This user is already existed");
@@ -82,6 +61,21 @@ public class CalendarController {
             bindingResult.reject("addFailed",e.getMessage());
             return "addCalendar";
         }
+        return "redirect:/calendar/";
+    }
+
+    @GetMapping("/show/{medicineId}")
+    public String showCalendar(@PathVariable("medicineId")int medicineId, Model model){
+        List<CalendarEntity> medicines = new ArrayList<>();
+        medicines = calendarRepository.findByMedicineId(medicineId);
+        model.addAttribute("data",medicines);
+        return "showCalendar";
+    }
+
+    @GetMapping("/delete/{medicineId}")
+    public String deleteCalendar(@PathVariable String medicineId) {
+        int deleteId = Integer.parseInt(medicineId);
+        calendarService.delete(deleteId);
         return "redirect:/calendar/";
     }
 

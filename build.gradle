@@ -23,7 +23,6 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-//	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.1'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
@@ -38,6 +37,7 @@ dependencies {
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 	testImplementation 'org.springframework.security:spring-security-test'
 
+	implementation 'org.hibernate:hibernate-entitymanager:5.6.15.Final'
 }
 
 tasks.named('test') {

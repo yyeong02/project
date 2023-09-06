@@ -8,7 +8,7 @@ function buildCalendar(){
     let firstDate= new Date(nowMonth.getFullYear(), nowMonth.getMonth(), 1);
     let lastDate= new Date(nowMonth.getFullYear(), nowMonth.getMonth()+1, 0)
 
-    let tbodyCal= document.querySelector(".cal > tbody");
+    let tbodyCal= document.querySelector("#tableCalendar > tbody");
     document.getElementById("calYear").innerText= nowMonth.getFullYear();
     document.getElementById("calMonth").innerText= leftPad(nowMonth.getMonth()+1);
 
@@ -51,6 +51,9 @@ function buildCalendar(){
     document.getElementById('divCalendarInfoYear').innerHTML = printMsg;
 }
 
+/*================================*/
+/*Month, Date 두 자리수로 표현*/
+/*================================*/
 function leftPad(n){
     if (n<10){
         n= "0"+n;
@@ -59,6 +62,11 @@ function leftPad(n){
     return n;
 }
 
+/*================================*/
+/*Date 선택시*/
+/*---1.선택한 날짜 출력*/
+/*---2.선택한 날짜를 포함한 값의 행에 show 클래스 부여*/
+/*================================*/
 function choiceDate(newDiv) {
     if (document.getElementsByClassName("choiceDay")[0]) {
         document.getElementsByClassName("choiceDay")[0].classList.remove("choiceDay");
@@ -71,8 +79,25 @@ function choiceDate(newDiv) {
     document.getElementById('divCalendarInfoDate').innerHTML = printDate;
 
     let temp = document.getElementById("calYear").innerText + "-" +document.getElementById("calMonth").innerText + "-" +newDiv.innerHTML
-    document.getElementById("divTempDate").innerText = temp
-    re(temp);
+    document.getElementById("pCalendarTempDate").innerText = temp
+
+    let countTr = Number(document.getElementById("pCalendarTempNumber").innerText)
+    var table = document.getElementById("tableCalendarInfo")
+
+    for(let i=0; i<countTr; i++){
+        let trId = "tr"+i
+        document.getElementById(trId).classList.remove("show")
+
+        let tr_startDate = document.getElementById(trId).cells[1].innerText
+        let tr_finishDate = document.getElementById(trId).cells[2].innerText
+
+        let compareDate = document.getElementById("pCalendarTempDate").innerText
+
+        if(compareDate >= tr_startDate && compareDate <= tr_finishDate){
+            document.getElementById(trId).classList.add("show")
+            console.log("yes!")
+        }
+    }
 }
 
 function calPrev(){
@@ -83,16 +108,4 @@ function calPrev(){
 function calNext(){
     nowMonth= new Date(nowMonth.getFullYear(), nowMonth.getMonth()+1,nowMonth.getDate())
     buildCalendar();
-}
-
-function re(temp){
-    $.ajax({
-        url : "/calendar/?date="+temp,
-        type : "GET",
-        data : $("#updateForm").serialize(),
-        dataType: 'JSON',
-        success : function (data) {
-            console.log("success");
-        }
-    })
 }

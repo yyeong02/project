@@ -2,15 +2,18 @@
 <html xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="/css/homeStyle.css">
+    <title>Home</title>
 </head>
 <body>
     <h1>Index page</h1>
     <form>
-        <button type="button" onclick="location.href='/calendar/'">달력</button>
-        <button type="button" onclick="location.href='Map.html'">지도</button>
-        <button sec:authorize="isAnonymous()" type="button" onclick="location.href='/user/login'">로그인</button>
-        <button sec:authorize="isAuthenticated()" type="button" onclick="location.href='/user/logout'">로그아웃</button>
+        <button id="btnHomeToCalendar" type="button" onclick="location.href='/calendar/'">달력</button>
+        <button id="btnHomeToMedicineBox" type="button" onclick="location.href='#'">지도-수거함</button>
+        <button id="btnHomeToPharmacy" type="button" onclick="location.href='#'">지도-약국</button>
+        <button id="btnHomeToChat" type="button" onclick="location.href='/chat/'">채팅</button><br>
+        <button id="btnHomeToLogin" sec:authorize="isAnonymous()" type="button" onclick="location.href='/user/login'">로그인</button>
+        <button id="btnHomeToSignup" sec:authorize="isAuthenticated()" type="button" onclick="location.href='/user/logout'">로그아웃</button>
     </form>
     <p sec:authorize="isAuthenticated()" th:text="${#authentication.name}"></p>
 </body>

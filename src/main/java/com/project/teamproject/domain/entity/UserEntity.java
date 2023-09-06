@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 public class UserEntity {
-    @Id     // Primary Key
+    @Id
     @Column(length = 10, nullable = false)
     private String id;
 
