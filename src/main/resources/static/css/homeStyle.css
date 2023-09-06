@@ -1,0 +1,9 @@
+/*================================*/
+/*home.html*/
+/*================================*/
+
+/* 버튼 ------------------------- */
+#btnHomeToCalendar, #btnHomeToMedicineBox, #btnHomeToPharmacy, #btnHomeToChat{
+    padding: 20px;
+    margin: 5px;
+}

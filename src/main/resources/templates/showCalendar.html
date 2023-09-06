@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+  <meta charset="UTF-8">
+  <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="/js/scriptCalDelete.js"></script>
+</head>
+<body>
+<button type="button" onclick="location.href='/calendar/'"> X </button>
+<table id="tableShowCalendar" th:each="data:${data}">
+    <p id="tempPShowCalendar" style="display: none" th:text="${data.medicineId}"></p>
+    <tbody>
+    <tr>
+        <th>약</th>
+        <td th:text="${data.medicine}"></td>
+    </tr>
+    <tr>
+        <th>시작 날짜</th>
+        <td th:text="${data.startdate}"></td>
+    </tr>
+    <tr>
+        <th>끝 날짜</th>
+        <td th:text="${data.finishdate}"></td>
+    </tr>
+    <tr>
+        <th>언제</th>
+        <td id="tdShowCalendar"></td>
+    </tr>
+    <tr>
+        <th>메모</th>
+        <td th:text="${data.memo}"></td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td><button type="button" id="btnShowCalendarDelete" onclick="btnClickHandler()">삭제</button></td>
+    </tr>
+    </tfoot>
+    <script th:inline="javascript">
+        var val = [[${data}]];
+
+        let text = ""
+        if(val.detail1) text+="아침 "
+        if(val.detail2) text+="점심 "
+        if(val.detail3) text+="저녁  "
+        if(val.detail4) text+="식전 30분 "
+        if(val.detail5) text+="식후 30분"
+
+        document.getElementById("tdShowCalendar").innerHTML = text
+    </script>
+</table>
+</body>
+</html>
