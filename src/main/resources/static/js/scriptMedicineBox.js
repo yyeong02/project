@@ -187,7 +187,7 @@ function goToCurrentPosition() {
     navigator.geolocation.getCurrentPosition(position => {
       const currentPosition = new kakao.maps.LatLng(position.coords.latitude, position.coords.longitude);
       map.panTo(currentPosition);
-      var imageSrc = 'images/currentPosition.png';
+      var imageSrc = '/images/currentPosition.png';
       imageSize = new kakao.maps.Size(40, 40);
       var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
 
@@ -197,7 +197,7 @@ function goToCurrentPosition() {
         image: markerImage
       });
       markers.push(marker);
-      map.setCenter(coords);
+     // map.setCenter(coords);
     }, error => {
       console.log('Failed to get current location:', error);
     });
