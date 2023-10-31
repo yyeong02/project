@@ -78,7 +78,6 @@
         .data-table th:nth-child(4), .data-table td:nth-child(4) {
         width: 15%;  /* 네번째 열의 너비를 지정합니다. */
         }
-
         @media screen and (max-width: 735px){
             .container {
                 position: relative; 
@@ -108,7 +107,7 @@
 
     </style>
     <link rel="stylesheet" href="assets/css/background.css" />
-    <title>폐의약품 수거함 찾기</title>
+    <title>약국 찾기</title>
 
 </head>
 <body>
@@ -151,26 +150,26 @@
 				</a>
 				<p style="position: fixed; bottom: 0; right: 10%;" id="user-info"></p>	<!-- 로그인 정보 -->
 			</nav>
-        </div>
 
-    <div class="container">
-        <div id="map"></div>
-        <div id="mBoxList">
-            <div id="buttons" >
-                <button class="button district" onclick="searchData('current')">가까운 수거함</button>
-                <button class="button district" onclick="searchData('중구')">중구</button>
-                <button class="button district" onclick="searchData('남구')">남구</button>
-                <button class="button district" onclick="searchData('달서구')">달서구</button>
-                <button class="button district" onclick="searchData('달성군')">달성군</button>
-                <button class="button district" onclick="searchData('동구')">동구</button>
-                <button class="button district" onclick="searchData('북구')">북구</button>
-                <button class="button district" onclick="searchData('서구')">서구</button>
-                <button class="button district" onclick="searchData('수성구')">수성구</button>
+            <div class="container">
+                <div id="map"></div>
+                <div id="mBoxList">
+                <div id="buttons">
+                        <button class="button district" onclick="searchData('current')">가까운 약국</button>
+                        <button class="button district" onclick="searchData('중구')">중구</button>
+                        <button class="button district" onclick="searchData('남구')">남구</button>
+                        <button class="button district" onclick="searchData('달서구')">달서구</button>
+                        <button class="button district" onclick="searchData('달성군')">달성군</button>
+                        <button class="button district" onclick="searchData('동구')">동구</button>
+                        <button class="button district" onclick="searchData('북구')">북구</button>
+                        <button class="button district" onclick="searchData('서구')">서구</button>
+                        <button class="button district" onclick="searchData('수성구')">수성구</button>
+                    </div>
+                    <table id="data-table"></table>
+                </div>
             </div>
-            <table id="data-table"></table>
-        </div>
-    </div>
-  <script src = assets/js/scriptMedicineBox.js></script>
+            
+  <script src = assets/js/pharmacy.js></script>
       <!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/browser.min.js"></script>

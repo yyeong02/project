@@ -5,9 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=42cd96a0da9b1e79c98fcbab4a817360&libraries=services,geometry"></script>
-    <script src = "assets\js\userState.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script><!-- 카카오 로그인 -->
-    <script src="assets\js\kakao-login.js"></script> <!-- 외부 JavaScript 파일 로드 -->
     <style>
         .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
         .wrap * {padding: 0;margin: 0;}
@@ -134,23 +132,6 @@
 				</div>
 			</header>
 
-		<!-- Menu -->
-			<nav id="menu">
-				<h2>Menu</h2>
-				<ul>
-					<li><a href="home.html" id="menuLink">Home</a></li>
-					<li><a href="login.html" id="menuLink">로그인</a></li>
-					<li><a href="diary.html" id="menuLink">다이어리</a></li>
-					<li><a href="pharmacy.html" id="menuLink">약국찾기</a></li>
-					<li><a href="medicineBox.html" id="menuLink">폐의약품 수거함찾기</a></li>
-					<li><a href="manager chat.html" id="menuLink">1:1관리자채팅</a></li>
-				</ul>
-				<!-- 카카오 로그아웃 버튼 -->
-				<a id="kakao-login-btn" href="javascript:logoutFromKakao()" style="position: fixed; bottom: 10px; left: 4%;">
-					<img style="width: 50px, hegiht 50px;"src="images\logout.png"/>
-				</a>
-				<p style="position: fixed; bottom: 0; right: 10%;" id="user-info"></p>	<!-- 로그인 정보 -->
-			</nav>
         </div>
 
     <div class="container">
@@ -170,11 +151,7 @@
             <table id="data-table"></table>
         </div>
     </div>
-  <script src = assets/js/scriptMedicineBox.js></script>
-      <!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/main.js"></script>
+  <script src = /js/scriptMedicineBox.js></script>
+
 </body>
 </html>
