@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=42cd96a0da9b1e79c98fcbab4a817360&libraries=services,geometry"></script>
-    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script><!-- 카카오 로그인 -->
+
     <style>
         .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
         .wrap * {padding: 0;margin: 0;}
@@ -105,35 +105,12 @@
         }
 
     </style>
-    <link rel="stylesheet" href="assets/css/background.css" />
-    <title>폐의약품 수거함 찾기</title>
+    <link rel="stylesheet" href="/css/background.css">
+	<title>폐의약품 수거함 찾기</title>
 
 </head>
 <body>
-     <!-- Wrapper -->
-	<div id="wrapper">
-
-		<!-- Header -->
-			<header id="header">
-				<div class="inner">
-
-					<!-- Logo -->
-						<a href="home.html" class="logo">
-							<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">웹 다이어리</span>
-						</a>
-
-					<!-- Nav -->
-						<nav>
-							<ul>
-								<li><a href="#menu">Menu</a></li>
-							</ul>
-						</nav>
-
-				</div>
-			</header>
-
-        </div>
-
+<button id="btnChatToHome" type="button" onclick="location.href='/home/'"> < </button>
     <div class="container">
         <div id="map"></div>
         <div id="mBoxList">
