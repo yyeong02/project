@@ -15,4 +15,10 @@ public class MainController {
 
     @GetMapping("/chat")
     public String chat() { return "chat"; }
+
+    @GetMapping("/pharmacy")
+    public String pharmacy() { return "pharmacy"; }
+
+    @GetMapping("/medicineBox")
+    public String medicineBox() { return "medicineBox"; }
 }
