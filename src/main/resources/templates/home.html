@@ -15,6 +15,20 @@
         <button id="btnHomeToLogin" sec:authorize="isAnonymous()" type="button" onclick="location.href='/user/login'">로그인</button>
         <button id="btnHomeToSignup" sec:authorize="isAuthenticated()" type="button" onclick="location.href='/user/logout'">로그아웃</button>
     </form>
-    <p sec:authorize="isAuthenticated()" th:text="${#authentication.name}"></p>
+    <table id="tableHome" onclick="location.href='/profile'" style="cursor: pointer">
+        <tbody th:each="user:${users}" th:if="${user.id}==${#authentication.name}">
+        <script id="scriptShowName" th:inline="javascript">
+            let val = [[${user}]]
+            var table = document.getElementById("tableHome")
+            let name = val.name
+
+            var newRow = table.insertRow()
+            var cell0 = newRow.insertCell()
+            cell0.setAttribute("id","tdName")
+            cell0.innerHTML = name
+        </script>
+        </tbody>
+    </table>
+<!--    <p id="userId" sec:authorize="isAuthenticated()" th:text="${#authentication.name}" onclick="location.href='/profile'"></p>-->
 </body>
 </html>

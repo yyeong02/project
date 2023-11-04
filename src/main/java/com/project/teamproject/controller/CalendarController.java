@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.security.Principal;
 import java.sql.Date;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -70,6 +71,12 @@ public class CalendarController {
         medicines = calendarRepository.findByMedicineId(medicineId);
         model.addAttribute("data",medicines);
         return "showCalendar";
+    }
+
+    @GetMapping("/show/{medicineId}/")
+    public String updateCalendar(@PathVariable("medicineId")String medicineId, @RequestParam String name, @RequestParam String medicine, @RequestParam String startdate, @RequestParam String finishdate, @RequestParam String detail1, @RequestParam String detail2, @RequestParam String detail3, @RequestParam String detail4, @RequestParam String detail5, @RequestParam String memo) throws ParseException {
+        calendarService.update(name,medicineId,medicine,startdate,finishdate,detail1,detail2,detail3,detail4,detail5,memo);
+        return "redirect:/calendar/show/"+medicineId;
     }
 
     @GetMapping("/delete/{medicineId}")

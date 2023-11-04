@@ -18,6 +18,6 @@ public interface CalendarRepository extends JpaRepository<CalendarEntity, String
     List<CalendarEntity> findAll();
     List<CalendarEntity> findBystartdate(Date date);
     List<CalendarEntity> findByMedicineId(int medicineId);
-
+    CalendarEntity findByMedicineIdAndMedicine(int medicineId, String medicine);
     void deleteByMedicineId(int medicineId);
 }

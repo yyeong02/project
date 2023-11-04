@@ -20,4 +20,10 @@ public class UserService {
         this.userRepository.save(user);
         return user;
     }
+
+    public void update(String id, String name, String newName){
+        UserEntity user = userRepository.findByIdAndName(id, name);
+        user.setName(newName);
+        this.userRepository.save(user);
+    }
 }

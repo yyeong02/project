@@ -14,6 +14,8 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,6 +41,24 @@ public class CalendarService {
         cal.setMemo(memo);
         this.calendarRepository.save(cal);
         return cal;
+    }
+
+    public void update(String name, String medicineId,String medicine,String startdate,String finishdate,String detail1,String detail2,String detail3,String detail4,String detail5,String memo) throws ParseException {
+        int num = Integer.parseInt(medicineId);
+        Date d1 = Date.valueOf(startdate);
+        Date d2 = Date.valueOf(finishdate);
+
+        CalendarEntity cal = calendarRepository.findByMedicineIdAndMedicine(num, name);
+        cal.setMedicine(medicine);
+        cal.setStartdate(d1);
+        cal.setFinishdate(d2);
+        cal.setDetail1(Boolean.parseBoolean(detail1));
+        cal.setDetail2(Boolean.parseBoolean(detail2));
+        cal.setDetail3(Boolean.parseBoolean(detail3));
+        cal.setDetail4(Boolean.parseBoolean(detail4));
+        cal.setDetail5(Boolean.parseBoolean(detail5));
+        cal.setMemo(memo);
+        this.calendarRepository.save(cal);
     }
 
     @Transactional

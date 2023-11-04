@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .notShow{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button type="button" onclick="location.href='/home'"> < </button>
+    <table id="tableProfile">
+        <tbody th:each="user:${users}" th:if="${user.id}==${#authentication.name}">
+        <script id="scriptShowProfile" th:inline="javascript">
+            let val = [[${user}]]
+            var table = document.getElementById("tableProfile")
+            let id = val.id
+            let name = val.name
+
+            var newRow0 = table.insertRow()
+            newRow0.setAttribute("id","trName")
+
+            var cell0 = newRow0.insertCell()
+            var cell1 = newRow0.insertCell()
+            var cell2 = newRow0.insertCell()
+            cell0.setAttribute("id","tdName")
+            // cell1.setAttribute("id","tdBtnProfileUpdate1")
+            // cell2.setAttribute("id","tdBtnProfileUpdate2")
+            cell0.innerHTML = name
+            cell1.insertAdjacentHTML("afterbegin","<button id=\"tdBtnProfileUpdate1\" type=\"button\" onclick=updateName()>...</button>")
+            cell2.insertAdjacentHTML("afterbegin","<button id=\"tdBtnProfileUpdate2\" type=\"button\" onclick=updateNameFinish()>완료</button>")
+
+            var newRow1 = table.insertRow()
+            newRow1.setAttribute("id","trInput")
+
+            var cell3 = newRow1.insertCell()
+            // cell3.setAttribute("id","tdInput")
+            cell3.insertAdjacentHTML("afterbegin","<input type=\"text\" id=\"tdInputProfile\" class=\"notShow\">")
+
+            var newRow2 = table.insertRow()
+            newRow2.setAttribute("id","trId")
+
+            var cell4 = newRow2.insertCell()
+            cell4.setAttribute("id","tdId")
+            cell4.innerHTML = id
+        </script>
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <h4>TODAY</h4>
+    <hr>
+    <table id="tableProfileToday">
+        <tbody>
+        <tr th:each="medicine:${medicines}" th:if="${medicine.id}==${#authentication.name}">
+            <script id="scriptShowProfileToday" th:inline="javascript">
+                var val2 = [[${medicine}]]
+                var d1 = new Date(val2.startdate)
+                var d2 = new Date(val2.finishdate)
+                var dToday = new Date()
+                var dToday_1 = dToday.getFullYear()+"-"+("0"+(1+dToday.getMonth())).slice(-2)+"-"+("0"+ dToday.getDate()).slice(-2)
+                var dt = new Date(dToday_1)
+
+                if((d1<=dt)&&(dt<=d2)){
+                    var table2 = document.getElementById("tableProfileToday")
+                    var medicineId = val2.medicineId
+
+                    var newRow2 = table2.insertRow()
+                    var cell = newRow2.insertCell()
+                    cell.innerHTML = val2.medicine
+                    cell.setAttribute("onclick","location.href=\"/calendar/show/"+medicineId+"\"")
+                }
+            </script>
+        </tr>
+        </tbody>
+    </table>
+    <script>
+        document.getElementById("tdInputProfile").classList.add("notShow")
+        document.getElementById("tdBtnProfileUpdate2").classList.add("notShow")
+        document.getElementById("tdBtnProfileUpdate1").classList.remove("notShow")
+    </script>
+    <script>
+        function updateName(){
+            let f = document.getElementById("tdBtnProfileUpdate2")
+            console.log(f.classList)
+            document.getElementById("tdInputProfile").classList.remove("notShow")
+            document.getElementById("tdBtnProfileUpdate2").classList.remove("notShow")
+            document.getElementById("tdBtnProfileUpdate1").classList.add("notShow")
+        }
+
+        function updateNameFinish(){
+            var conf = confirm("이름을 수정하시겠습니까?")
+            if(conf==true){
+                let id = document.getElementById("tdId").innerText
+                let name = document.getElementById("tdName").innerText
+                let newName = document.getElementById("tdInputProfile").value
+
+                location.replace("/profile/update/?id="+id+"&name="+name+"&newName="+newName)
+            }
+        }
+    </script>
+</body>
+</html>
