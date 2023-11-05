@@ -1,9 +1,11 @@
 package com.project.teamproject.controller;
 
 import com.project.teamproject.domain.entity.CalendarEntity;
+import com.project.teamproject.domain.entity.NewsEntity;
 import com.project.teamproject.domain.entity.UserEntity;
 import com.project.teamproject.domain.repository.CalendarRepository;
 import com.project.teamproject.domain.repository.UserRepository;
+import com.project.teamproject.service.NewsService;
 import com.project.teamproject.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -22,11 +24,14 @@ public class MainController {
     private final UserService userService;
     private final UserRepository userRepository;
     private final CalendarRepository calendarRepository;
+    private final NewsService newsServiceService;
 
     @GetMapping("/home")
     public String home(Model model) {
         List<UserEntity> users = new ArrayList<>();
         users = userRepository.findAll();
+        List<NewsEntity> newsEntityList = newsServiceService.getNewsList();
+        model.addAttribute("newsList", newsEntityList);
 
         model.addAttribute("users",users);
         return "home";
