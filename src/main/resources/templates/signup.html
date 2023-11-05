@@ -2,15 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/login.css">
     <title>Sign Up</title>
 </head>
 <body>
-    <h1>SIGN UP</h1>
+    <button type="button" onclick="location.href='/user/login'"> < </button>
+    <h1>Sign Up</h1>
     <form th:action="@{/user/signup}" th:object="${userCreateForm}" method="post" >
-        <label for="id">ID</label><input type="text" th:field="*{id}" class="signupForm"><br>
-        <label for="pw">PW</label><input type="text" th:field="*{pw}" class="signupForm"><br>
-        <label for="name">이름</label><input type="text" th:field="*{name}" class="signupForm"><br>
-        <button type="submit">가입</button>
+        <label for="id"></label><input type="text" th:field="*{id}" class="signupForm" placeholder="ID"><br>
+        <label for="pw"></label><input type="text" th:field="*{pw}" class="signupForm" placeholder="PW"><br>
+        <label for="name"></label><input type="text" th:field="*{name}" class="signupForm" placeholder="이름"><br>
+        <button type="submit" class="sign__up">가입</button>
     </form>
 </body>
 </html>

@@ -2,15 +2,17 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/login.css">
     <title>Log In</title>
 </head>
 <body>
-    <h1>LOG IN</h1>
+    <button type="button" onclick="location.href='/home'"> < </button>
+    <h1>Log In</h1>
     <form method="post" th:action="@{/user/login}">
-        <label for="username">ID</label><input type="text" id="username" class="loginForm" name="username"><br>
-        <label for="password">PW</label><input type="text" id="password" class="loginForm" name="password"><br>
-        <button type="submit">로그인</button>
-        <button type="button" onclick="location.href='/user/signup'">회원가입</button>
+        <label for="id"></label><input type="text" id="username" class="loginForm" name="username" placeholder="ID"><br>
+        <label for="pw"><input type="password" id="password" class="loginForm" name="password" placeholder="PW"><br>
+        <button type="submit" class="sign__up">로그인</button>
+        <button type="button" onclick="location.href='/user/signup'" class="sign__up">회원가입</button>
     </form>
 </body>
 </html>
