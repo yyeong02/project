@@ -10,12 +10,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
     private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
 
     public UserEntity create(String id, String pw, String name){
         UserEntity user = new UserEntity();
         user.setId(id);
-        user.setPw(passwordEncoder.encode(pw));
+        user.setPw(pw);
         user.setName(name);
         this.userRepository.save(user);
         return user;
