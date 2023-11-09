@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
@@ -23,6 +24,7 @@ import java.util.Optional;
 public class UserSecurityService implements UserDetailsService{
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
@@ -36,11 +38,12 @@ public class UserSecurityService implements UserDetailsService{
         UserEntity userEntity = _userEntity.get();
         List<GrantedAuthority> authorities = new ArrayList<>();
 
+        String bcryptedPassword = passwordEncoder.encode(userEntity.getPw());
         if ("admin".equals(id)) {
             authorities.add(new SimpleGrantedAuthority("ADMIN"));
         } else {
             authorities.add(new SimpleGrantedAuthority("USER"));
         }
-        return new User(userEntity.getId(), userEntity.getPw(), authorities);
+        return new User(userEntity.getId(), bcryptedPassword, authorities);
     }
 }
