@@ -3,33 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Chat</title>
-    <link rel="stylesheet" href="/css/button.css">
     <style>
         h1{
             text-align: center;
         }
-        h2{
-            padding-left: 1%;
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
         }
-        #buttons{
-            text-align: center;
+
+        .active, .accordion:hover {
+            background-color: #ccc;
+        }
+
+        .panel {
+            padding: 0 18px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
         }
     </style>
+    <link rel="stylesheet" href="/css/button.css">
 </head>
 <body>
 <button id="btnChatToHome" type="button" onclick="location.href='/home/'"> < </button>
 <h1>Q&A Categories</h1>
 <div>
-    <div id="buttons">
-        <button class="button district" onclick="showCategory('회원 정보')">회원 정보</button>
-        <button class="button district" onclick="showCategory('약국')">약국</button>
-        <button class="button district" onclick="showCategory('폐의약품')">폐의약품</button>
-        <button class="button district" onclick="showCategory('달력')">달력</button>
-        <button class="button district" onclick="showCategory('기타')">기타</button>
-    </div>
-    <hr>
-    <div class="qa-list" id="회원 정보">
-        <h2>회원 정보</h2>
+    <button class="accordion">회원 정보</button>
+    <div class="panel">
         <ul>
             <li>
                 <strong>Q: 회원가입은 어떻게 하나요?</strong>
@@ -42,8 +51,8 @@
         </ul>
     </div>
 
-    <div class="qa-list" id="약국">
-        <h2>약국</h2>
+    <button class="accordion">약국</button>
+    <div class="panel">
         <ul>
             <li>
                 <strong>Q: 주변 약국을 어떻게 찾을 수 있나요?</strong>
@@ -60,8 +69,8 @@
         </ul>
     </div>
 
-    <div class="qa-list" id="폐의약품">
-        <h2>폐의약품</h2>
+    <button class="accordion">폐의약품</button>
+    <div class="panel">
         <ul>
             <li>
                 <strong>Q: 수거함을 어떻게 찾을 수 있나요?</strong>
@@ -74,8 +83,8 @@
         </ul>
     </div>
 
-    <div class="qa-list" id="달력">
-        <h2>달력</h2>
+    <button class="accordion">달력</button>
+    <div class="panel">
         <ul>
             <li>
                 <strong>Q: 달력에 증상과 메모를 어떻게 입력하나요?</strong>
@@ -88,8 +97,8 @@
         </ul>
     </div>
 
-    <div class="qa-list" id="기타">
-        <h2>기타</h2>
+    <button class="accordion">기타</button>
+    <div class="panel">
         <ul>
             <li>
                 <strong>Q: 관리자와의 1:1 채팅을 어떻게 시작할 수 있나요?</strong>
@@ -99,5 +108,22 @@
     </div>
     <script src=/js/scriptChat.js></script>
 </div>
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>
 </body>
 </html>
