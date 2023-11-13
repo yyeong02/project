@@ -1,14 +1,4 @@
-:root {
-
-    --c-white: #fff;
-    --c-black: #000;
-    font-size: 20px;
-  
-    --c-titan-white: #f1eeff;
-    --c-cold-purple: #a69fd6;
-    --c-indigo: #6558d3;
-    --c-governor: #4133B7;
-  }
+@import url("/css/rootStyle.css");
 
 .top_bar{
     background:var(--c-cold-purple);
@@ -25,20 +15,16 @@
     }
     margin-bottom: 100px;
 }
-.top_bar ul{
+header ul{
   width: 70%;
-  margin: auto;
+  margin: 10px auto;
 }
 .top_bar ul>li{
-  display: -webkit-inline-box;
-  margin-left: 20px;
+  display: inline-block;
+
 }
 
-header{
-  margin: 0 auto;
-  padding: 10px;
-  width: 100% ;
-}
+
 
 
 #btnHome,#btnHomeToCalendar, #btnHomeToMedicineBox, #btnHomeToPharmacy, #btnHomeToChat,#btnMyPage{
@@ -49,6 +35,7 @@ header{
       color: var(--c-governor);
       font-style: bold ;
     }
+    
 }
 #btnHomeToLogin,#btnHomeToSignup{
     font: inherit;

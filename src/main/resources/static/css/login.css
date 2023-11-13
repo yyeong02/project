@@ -1,7 +1,6 @@
 @import url("/css/header.css");
-
+@import url("/css/rootStyle.css");
 body{
-    font-family: 'Montserrat', sans-serif;
     background:white;
   }
   

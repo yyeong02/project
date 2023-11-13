@@ -1,13 +1,1 @@
-:root {
-
-    --c-white: #fff;
-    --c-black: #000;
-    font-size: 20px;
-  
-    --c-titan-white: #f1eeff;
-    --c-cold-purple: #a69fd6;
-    --c-indigo: #6558d3;
-    --c-governor: #4133B7;
-  }
-
-  
+@import url("/css/rootStyle.css");

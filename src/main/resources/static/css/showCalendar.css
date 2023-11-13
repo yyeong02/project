@@ -1,34 +1,4 @@
-:root {
-
-    --c-white: #fff;
-    --c-black: #000;
-    font-size: 20px;
-  
-    --c-titan-white: #f1eeff;
-    --c-cold-purple: #a69fd6;
-    --c-indigo: #6558d3;
-    --c-governor: #4133B7;
-  }
-button{
-    font: inherit;
-    line-height: 1;
-    background-color: var(--c-white);
-    border: 2px solid var(--c-indigo);
-    color: var(--c-indigo);
-    padding: 5px 10px;
-    margin-bottom: 10px;
-    border-radius: 6px;
-    font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.5rem;
-    &:hover,
-    &:focus {
-      background-color: var(--c-indigo);
-      color: var(--c-white);
-    }
-  }
+@import url("/css/rootStyle.css");
 
   #divMedicineInfo{ 
     border-radius: 16px;

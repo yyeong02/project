@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700,900");
-
+@import url("/css/rootStyle.css");
 .button.district {
+    font-family: 'Noto Sans KR', sans-serif;
     display: inline-block;
     padding: 8px 16px;
     font-size: 14px;

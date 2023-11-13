@@ -1,0 +1,49 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css); 
+
+
+:root {
+
+    --c-white: #fff;
+    --c-black: #000;
+    font-size: 20px;
+  
+    --c-titan-white: #f1eeff;
+    --c-cold-purple: #a69fd6;
+    --c-indigo: #6558d3;
+    --c-governor: #4133B7;
+    font-family: 'Noto Sans KR', sans-serif;
+
+  }
+button{
+    font-family: 'Noto Sans KR', sans-serif;
+    
+    line-height: 1;
+    background-color: var(--c-white);
+    border: 2px solid var(--c-indigo);
+    color: var(--c-indigo);
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    &:hover,
+    &:focus {
+      background-color: var(--c-indigo);
+      color: var(--c-white);
+    }
+  }
+
+  .container{
+    width: 80%;
+    margin: 60px auto;
+    padding: 10px;
+
+}
+
+.wrapper{
+    width: auto;
+    margin: 0 auto;
+}
