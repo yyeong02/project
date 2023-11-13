@@ -9,64 +9,67 @@
     </style>
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="/js/scriptCalDelete.js"></script>
+    <link rel="stylesheet" href="/css/showCalendar.css">
 </head>
 <body>
 <button type="button" onclick="location.href='/calendar/'"> X </button>
-<table id="tableShowCalendar" th:each="data:${data}">
-    <p id="tempPShowCalendar" style="display: none" th:text="${data.medicineId}"></p>
-    <tbody>
-    <tr>
-        <th>약</th>
-        <td th:text="${data.medicine}"></td>
-        <td id="tdUpdateCalendar1" class="notShow"><input type="text" id="updateCalendarMedicine"></td>
-    </tr>
-    <tr>
-        <th>시작 날짜</th>
-        <td th:text="${data.startdate}"></td>
-        <td id="tdUpdateCalendar2" class="notShow"><input type="date" id="dateUpdateCalendarStartdate"></td>
-    </tr>
-    <tr>
-        <th>끝 날짜</th>
-        <td th:text="${data.finishdate}"></td>
-        <td id="tdUpdateCalendar3" class="notShow"><input type="date" id="dateUpdateCalendarFinishdate"></td>
-    </tr>
-    <tr>
-        <th>언제</th>
-        <td id="tdShowCalendar"></td>
-        <td id="tdUpdateCalendar4" class="notShow">
-            <label for="checkboxUpdateCalendarDetail1">아침</label>
-            <input type="checkbox" id="checkboxUpdateCalendarDetail1" value="checkboxUpdateCalendarDetail1">
-            <label for="checkboxUpdateCalendarDetail2">점심</label>
-            <input type="checkbox" id="checkboxUpdateCalendarDetail2" value="checkboxUpdateCalendarDetail2">
-            <label for="checkboxUpdateCalendarDetail3">저녁</label>
-            <input type="checkbox" id="checkboxUpdateCalendarDetail3" value="checkboxUpdateCalendarDetail3">
-            <label for="checkboxUpdateCalendarDetail4">식전 30분</label>
-            <input type="checkbox" id="checkboxUpdateCalendarDetail4" value="checkboxUpdateCalendarDetail4">
-            <label for="checkboxUpdateCalendarDetail5">식후 30분</label>
-            <input type="checkbox" id="checkboxUpdateCalendarDetail5" value="checkboxUpdateCalendarDetail5">
-        </td>
-    </tr>
-    <tr>
-        <th>메모</th>
-        <td th:text="${data.memo}"></td>
-    </tr>
-    <tr>
-        <td id="tdMedicine" style="visibility: hidden;"></td>
-        <td id="tdMedicineId" style="visibility: hidden;"></td>
-        <td id="tdUpdateCalendar5" class="notShow">
-            <textarea id="textareaUpdateCalendarMemo" rows="2" cols="30" maxlength="250"></textarea>
-        </td>
-    </tr>
-    </tbody>
-    <tfoot>
-    <tr>
-        <td>
-            <button type="button" id="btnShowCalendarDelete" onclick="deleteCalendar()">삭제</button>
-            <button type="button" id="btnShowCalendarUpdate" onclick="updateCalendar()">수정</button>
-            <button type="button" id="btnShowCalendarUpdateFinish" onclick="updateCalendarFinish()" class="notShow">완료</button>
-        </td>
-    </tr>
-    </tfoot>
+<div id="divMedicineInfo">
+    <table id="tableShowCalendar" th:each="data:${data}">
+        <p id="tempPShowCalendar" style="display: none" th:text="${data.medicineId}"></p>
+        <tbody>
+        <tr>
+            <th>약</th>
+            <td th:text="${data.medicine}"></td>
+            <td id="tdUpdateCalendar1" class="notShow"><input type="text" id="updateCalendarMedicine"></td>
+        </tr>
+        <tr>
+            <th>시작 날짜</th>
+            <td th:text="${data.startdate}"></td>
+            <td id="tdUpdateCalendar2" class="notShow"><input type="date" id="dateUpdateCalendarStartdate"></td>
+        </tr>
+        <tr>
+            <th>끝 날짜</th>
+            <td th:text="${data.finishdate}"></td>
+            <td id="tdUpdateCalendar3" class="notShow"><input type="date" id="dateUpdateCalendarFinishdate"></td>
+        </tr>
+        <tr>
+            <th>언제</th>
+            <td id="tdShowCalendar"></td>
+            <td id="tdUpdateCalendar4" class="notShow">
+                <label for="checkboxUpdateCalendarDetail1">아침</label>
+                <input type="checkbox" id="checkboxUpdateCalendarDetail1" value="checkboxUpdateCalendarDetail1">
+                <label for="checkboxUpdateCalendarDetail2">점심</label>
+                <input type="checkbox" id="checkboxUpdateCalendarDetail2" value="checkboxUpdateCalendarDetail2">
+                <label for="checkboxUpdateCalendarDetail3">저녁</label>
+                <input type="checkbox" id="checkboxUpdateCalendarDetail3" value="checkboxUpdateCalendarDetail3">
+                <label for="checkboxUpdateCalendarDetail4">식전 30분</label>
+                <input type="checkbox" id="checkboxUpdateCalendarDetail4" value="checkboxUpdateCalendarDetail4">
+                <label for="checkboxUpdateCalendarDetail5">식후 30분</label>
+                <input type="checkbox" id="checkboxUpdateCalendarDetail5" value="checkboxUpdateCalendarDetail5">
+            </td>
+        </tr>
+        <tr>
+            <th>메모</th>
+            <td th:text="${data.memo}"></td>
+        </tr>
+        <tr>
+            <td id="tdMedicine" style="visibility: hidden;"></td>
+            <td id="tdMedicineId" style="visibility: hidden;"></td>
+            <td id="tdUpdateCalendar5" class="notShow">
+                <textarea id="textareaUpdateCalendarMemo" rows="2" cols="30" maxlength="250"></textarea>
+            </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td>
+                <button type="button" id="btnShowCalendarDelete" onclick="deleteCalendar()">삭제</button>
+                <button type="button" id="btnShowCalendarUpdate" onclick="updateCalendar()">수정</button>
+                <button type="button" id="btnShowCalendarUpdateFinish" onclick="updateCalendarFinish()" class="notShow">완료</button>
+            </td>
+        </tr>
+        </tfoot>
+</div>
     <script th:inline="javascript">
         var val = [[${data}]];
 

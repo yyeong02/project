@@ -1,9 +1,10 @@
 /*================================*/
 /*home.html*/
 /*================================*/
+@import url("/css/header.css");
 
-/* 버튼 ------------------------- */
-#btnHomeToCalendar, #btnHomeToMedicineBox, #btnHomeToPharmacy, #btnHomeToChat{
-    padding: 20px;
-    margin: 5px;
+.container{
+    margin: 60px auto;
+    padding: 10px;
+    overflow: hidden;
 }

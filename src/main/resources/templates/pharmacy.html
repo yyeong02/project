@@ -106,11 +106,24 @@
 	</style>
 	<link rel="stylesheet" href="/css/background.css">
 	<link rel="stylesheet" href="/css/button.css">
+	<link rel="stylesheet" href="/css/header.css">
 	<title>약국 찾기</title>
 
 </head>
 <body>
-<button id="btnChatToHome" type="button" onclick="location.href='/home/'"> < </button>
+    <header class="top_bar">
+        <ul>    
+            <li><a type="button" id="btnHome" onclick="location.href='/home/'">HOME </a></li>
+            <li><a  id="btnHomeToCalendar" type="button" onclick="location.href='/calendar/'">달력</a></li>
+            <li><a  id="btnHomeToMedicineBox" type="button" onclick="location.href='/medicineBox/'">지도-수거함</a></li>
+            <li><a id="btnHomeToPharmacy" type="button" onclick="location.href='/pharmacy/'">지도-약국</a></li>
+            <li><a id="btnHomeToChat" type="button" onclick="location.href='/chat/'">Q&A</a></li>
+            <li><a id="btnMyPage" type="button" onclick="location.href='/profile/'">마이페이지</a></li>
+            
+            <button class="right" id="btnHomeToLogin" sec:authorize="isAnonymous()" type="button" onclick="location.href='/user/login'">로그인</button>
+            <button class="right" id="btnHomeToSignup" sec:authorize="isAuthenticated()" type="button" onclick="location.href='/user/logout'">로그아웃</button>
+        </ul>
+    </header>
 <h3>약국 찾기</h3>
 <div class="container">
 	<div id="map"></div>
