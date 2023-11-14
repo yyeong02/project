@@ -51,29 +51,37 @@ button {
   }
 
 .divCalendarWrap{
-    width: 90%;
+    width: 100%;
     margin: 60px auto;
     overflow: hidden;
 }
 
 #divCalendar{
-    width: 50%;
+    width: 40%;
+    margin-left: 5%;
+    background-color: var(--c-titan-white);
     float:left;
+    border-radius: 16px;
+    box-shadow: 0 30px 30px -25px var(--c-cold-purple);
 
 }
 #divCalendarInfo{ 
     border-radius: 16px;
-    box-shadow: 0 30px 30px -25px rgba(#4133B7, .25);
-    width: 50%;
+    box-shadow: 0 30px 30px -25px var(--c-cold-purple);
+    width: 46%;
+    height: 550px;
+    margin-right: 5%;
     float: right;
     background-color: #A6BFFF;
     text-align: center;
     padding-bottom: 10px;
 }
 #divCalendarInfo table{
+    width: 98%;
     margin: 0 auto;
     background-color: #FFFFFF;
-    padding-bottom: 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
 }
 #divCalendarInfoYear, #divCalendarInfoDate{
     text-align: center;
@@ -83,9 +91,9 @@ button {
 
 /* 달력 테이블 ------------------- */
 #tableCalendar{
-    margin: 10 auto;
-    padding: 20px 0 20px 0;
-    width: 80%;
+    margin: 0 auto;
+    padding: 10px ;
+    width: 90%;
     height: 550px;
     table-layout: fixed;
 }
@@ -94,7 +102,6 @@ button {
 }
 #tableCalendar button{
     width: 50px;
-    
     font-size: 30px;
     font-weight: bold;
     -webkit-transition: color 0.6s;

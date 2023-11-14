@@ -5,21 +5,15 @@
     position:fixed;
     left:0;top: 0;right:0;
     height: 50px;
-    
+    width: 100%;
     justify-content: space-between;
-   
-
-    .right{
-
-        float: right;
-    }
+    
     margin-bottom: 100px;
 }
-header ul{
-  width: 70%;
-  margin: 10px auto;
+.top_bar table{
+  margin: 5px auto;
 }
-.top_bar ul>li{
+.top_bar th>td{
   display: inline-block;
 
 }
@@ -44,7 +38,6 @@ header ul{
     border: 2px solid var(--c-indigo);
     color: var(--c-indigo);
     padding: 5px;
-    margin-bottom: 10px;
     border-radius: 6px;
     font-weight: 500;
     display: inline-flex;
