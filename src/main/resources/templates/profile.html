@@ -40,11 +40,8 @@
                 var cell1 = newRow0.insertCell()
                 var cell2 = newRow0.insertCell()
                 cell0.setAttribute("id","tdName")
-                // cell1.setAttribute("id","tdBtnProfileUpdate1")
-                // cell2.setAttribute("id","tdBtnProfileUpdate2")
-                cell0.innerHTML = name
-                cell1.insertAdjacentHTML("afterbegin","<button id=\"tdBtnProfileUpdate1\" type=\"button\" onclick=updateName()>수정</button>")
-                cell2.insertAdjacentHTML("afterbegin","<button id=\"tdBtnProfileUpdate2\" type=\"button\" onclick=updateNameFinish()>완료</button>")
+
+                cell0.insertAdjacentHTML("afterbegin","name <button id=\"tdBtnProfileUpdate1\" type=\"button\" onclick=updateName()>수정</button><button id=\"tdBtnProfileUpdate2\" type=\"button\" onclick=updateNameFinish()>완료</button>")
     
                 var newRow1 = table.insertRow()
                 newRow1.setAttribute("id","trInput")
