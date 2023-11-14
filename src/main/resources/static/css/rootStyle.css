@@ -4,9 +4,9 @@
 :root {
 
     --c-white: #fff;
-    --c-black: #000;
-    font-size: 20px;
-  
+    --c-lightgray: #e2e2e2;
+    font-size: 62.5%;
+    
     --c-titan-white: #f1eeff;
     --c-cold-purple: #a69fd6;
     --c-indigo: #6558d3;
@@ -47,3 +47,36 @@ button{
     width: auto;
     margin: 0 auto;
 }
+
+@media screen and (max-width: 735px){
+  header{
+    font-size: 1em;
+    margin: 1em,auto;
+  }
+  body{
+    font-size: 10px;
+  }
+  .top_bar{
+    height: fit-content;
+  }
+  h3{
+    font-size: 1.2em;
+  }
+  }
+
+
+ @media screen and (min-width: 736px) {
+  header{
+    font-size: 1.2em;
+    margin: 1em,auto;
+  }
+  body{
+    font-size: 14px;
+  }
+  .top_bar{
+    height: 6rem;
+  }
+  h3{
+    font-size: 2em;
+  }
+  }

@@ -2,29 +2,26 @@
 <html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="/css/calendarStyle.css">
     <link rel="stylesheet" href="/css/header.css">
+    
     <script src="/js/scriptCalMonthChange.js"></script>
     <title>Calendar</title>
 </head>
 <body>
-    <header class="top_bar">
-       <table>
-        <th>    
-            <td><a type="button" id="btnHome" onclick="location.href='/home/'">HOME </a></td>
-            <td><a  id="btnHomeToCalendar" type="button" onclick="location.href='/calendar/'">달력</a></t>
-            <td><a  id="btnHomeToMedicineBox" type="button" onclick="location.href='/medicineBox/'">지도-수거함</a></td>
-            <td><a id="btnHomeToPharmacy" type="button" onclick="location.href='/pharmacy/'">지도-약국</a></td>
-            <td><a id="btnHomeToChat" type="button" onclick="location.href='/chat/'">Q&A</a></td>
-            <td><a id="btnMyPage" type="button" onclick="location.href='/profile/'">마이페이지</a></td>
-            <td><button id="btnHomeToLogin" sec:authorize="isAnonymous()" type="button" onclick="location.href='/user/login'">로그인</button>
-                <button id="btnHomeToSignup" sec:authorize="isAuthenticated()" type="button" onclick="location.href='/user/logout'">로그아웃</button></t>
-            
-        </th>
-       </table>
-    </header>
 <div class="divCalendarWrap">
+    <header class="top_bar">
+        <script src="/js/includeHTML.js"></script>
+        <td><button id="btnHomeToLogin" sec:authorize="isAnonymous()" type="button" onclick="location.href='/user/login'">로그인</button>
+            <button id="btnHomeToSignup" sec:authorize="isAuthenticated()" type="button" onclick="location.href='/user/logout'">로그아웃</button></t>
+        
+    </th>
+   </table>
+    </header>
+
     <div id="divCalendar">
         <table id="tableCalendar" >
             <thead>
@@ -50,10 +47,9 @@
             </tbody>
         </table>
     </div>
-    <div th:fragment="content" id="divCalendarInfoWrap">
+    <div id="divCalendarInfoWrap">
         <div id="divCalendarInfo" sec:authorize="isAuthenticated()">
-            
-            
+
                 <h3 id="divCalendarInfoYear"></h3>
                 <h2 id="divCalendarInfoDate"></h2>
 
@@ -112,14 +108,20 @@
                             else cell6.innerHTML = " "
                             if(val.detail5) cell7.innerHTML = "식후 30분"
                             else cell7.innerHTML = " "
-                            cell8.insertAdjacentHTML("afterbegin", "<td><button type=\"button\" onclick=\"location.href='/calendar/show/"+val.medicineId+"'\"> > </button></td>")
+                            cell8.insertAdjacentHTML("afterbegin", "<td><button type=\"button\" id=\"addBtn\" onclick=\"location.href='/calendar/show/"+val.medicineId+"'\"> > </button></td>")
                         </script>
                     </tr>
                     </tbody>
                 </table>
                     <button id="btnAdd" type="button" onclick="location.href='/calendar/add'">ADD</button>
               
-             
+             <script>
+                var modal=document.getElementById('myModal');
+                var openbtn=document.getElementById('addBtn');
+                openbtn.onclick=function(){
+                    modal.style.display="block";
+                }
+             </script>
 
            
         </div>

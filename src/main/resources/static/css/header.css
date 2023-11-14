@@ -4,25 +4,32 @@
     background:var(--c-cold-purple);
     position:fixed;
     left:0;top: 0;right:0;
-    height: 50px;
+
     width: 100%;
     justify-content: space-between;
-    
+    vertical-align: auto;
     margin-bottom: 100px;
+    z-index: 100;
+    text-align: center;
 }
 .top_bar table{
-  margin: 5px auto;
+  margin: 1rem auto;
+  font-size: 1.2em;
 }
 .top_bar th>td{
   display: inline-block;
 
 }
 
+header{
+  display: block;
+}
 
 
 
 #btnHome,#btnHomeToCalendar, #btnHomeToMedicineBox, #btnHomeToPharmacy, #btnHomeToChat,#btnMyPage{
-    margin: 0px 20px;
+    margin: 0.1rem 1.5rem;
+    height: fit-content;
     color: var(--c-white);
     &:hover,
     &:focus {
@@ -34,6 +41,7 @@
 #btnHomeToLogin,#btnHomeToSignup{
     font: inherit;
     line-height: 1;
+    margin: 0.1rem auto;
     background-color: var(--c-white);
     border: 2px solid var(--c-indigo);
     color: var(--c-indigo);
