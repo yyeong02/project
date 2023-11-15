@@ -305,3 +305,7 @@ function getDistance(lat1, lng1, lat2, lng2) {
   const lngDiff = lng2 - lng1;
   return 100*(Math.sqrt(latDiff * latDiff + lngDiff * lngDiff));
 }
+
+function showAlert() {
+  alert("현재 지원하지 않는 지역입니다.");
+}
