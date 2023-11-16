@@ -56,7 +56,7 @@ button {
     box-shadow: 0 30px 30px -25px var(--c-cold-purple);
     min-width: 320px;
     height: 550px;
-
+    position: relative;
     background-color: #d1deff;
     text-align: center;
     padding-bottom: 10px;
@@ -65,11 +65,18 @@ button {
     margin: 2rem auto;
     font-size: 1.3em;
 }
+#tableProfile{
+
+    width:80%;
+    margin: 4em auto;
+    font-size: 1.3em;
+    
+}
 #divMedicineInfo{
     width: 80%;
     margin: 2em auto;
 }
-#tableShowCalendar, #tableProfile{
+#tableShowCalendar{
     background-color: #FFFFFF;
     width:80%;
     margin: 4em auto;

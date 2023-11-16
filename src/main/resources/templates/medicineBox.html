@@ -82,7 +82,7 @@
 				position: static; justify-content: center;
 			}
 			#map{
-				width:inherit; margin: 3em auto; height:240px; position:absolute;
+				width:inherit; margin: 3em auto; height:240px; position:relative;
 			}
 			#mBoxList {
 				width: inherit;
@@ -110,9 +110,9 @@
 				font-size: 1.2em;
 			}
         }
-    h3 {
+        h3 {
         position: absolute;
-        top: 60px;
+
         width: inherit;
 		height: fit-content;
         margin: 0 auto;
@@ -131,17 +131,19 @@
 
 </head>
 <body>
-        <header class="top_bar">
-            <script src="/js/includeHTML.js"></script>
-            <td><button id="btnHomeToLogin" sec:authorize="isAnonymous()" type="button" onclick="location.href='/user/login'">로그인</button>
-                <button id="btnHomeToSignup" sec:authorize="isAuthenticated()" type="button" onclick="location.href='/user/logout'">로그아웃</button></t>
-            
-        </th>
-       </table>
-        </header>
+
 
             <div class="container">
-                <h3>폐의약품 수거함 찾기</h3>
+                <header class="top_bar">
+                    <script src="/js/includeHTML.js"></script>
+                    <td><button id="btnHomeToLogin" sec:authorize="isAnonymous()" type="button" onclick="location.href='/user/login'">로그인</button>
+                        <button id="btnHomeToSignup" sec:authorize="isAuthenticated()" type="button" onclick="location.href='/user/logout'">로그아웃</button></t>
+                    
+                </th>
+               </table>
+                </header>
+                <div>
+                <h3 style="margin: 0 auto; position: relative;">폐의약품 수거함 찾기</h3>
                 <div id="map"></div>
                 <div id="mBoxList">
                     <div id="buttons" >
@@ -160,5 +162,6 @@
             </div>
           <script src = /js/scriptMedicineBox.js></script>    
         </div>
+    </div>
     </body>
 </html>

@@ -14,20 +14,22 @@
     <link rel="stylesheet" href="/css/calendarStyle.css">
 </head>
 <body>
-
-    <header class="top_bar">
-        <script src="/js/includeHTML.js"></script>
-        <td><button id="btnHomeToLogin" sec:authorize="isAnonymous()" type="button" onclick="location.href='/user/login'">로그인</button>
-            <button id="btnHomeToSignup" sec:authorize="isAuthenticated()" type="button" onclick="location.href='/user/logout'">로그아웃</button></t>
-        
-    </th>
-   </table>
-    </header>
-    <div>
-    <h1>마이페이지</h1>
+    <div class="container">
+        <header class="top_bar">
+            <script src="/js/includeHTML.js"></script>
+            <td><button id="btnHomeToLogin" sec:authorize="isAnonymous()" type="button" onclick="location.href='/user/login'">로그인</button>
+                <button id="btnHomeToSignup" sec:authorize="isAuthenticated()" type="button" onclick="location.href='/user/logout'">로그아웃</button></t>
+            
+        </th>
+       </table>
+        </header>
+        <div>
+    <h1 style="margin: 0 auto; text-align: center; position: relative;">마이페이지</h1>
     <div id="divMedicineInfo">
         <table id="tableProfile">
+            <br>
             <tbody 
+            
             th:each="user:${users}" th:if="${user.id}==${#authentication.name}">
             <script id="scriptShowProfile" th:inline="javascript">
                 let val = [[${user}]]
@@ -63,7 +65,7 @@
         </table>
         <br>
         <br>
-        <h4>TODAY</h4>
+        <h3>TODAY</h3>
         <p> 오늘 복용해야할 약 목록입니다.</p>
         <hr>
         <table id="tableProfileToday">
@@ -92,6 +94,7 @@
             </tbody>
         </table>
     </div>
+</div>
 </div>
 
 
