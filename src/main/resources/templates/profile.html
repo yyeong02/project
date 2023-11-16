@@ -11,8 +11,10 @@
         }
     </style>
 	<link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/calendarStyle.css">
 </head>
 <body>
+
     <header class="top_bar">
         <script src="/js/includeHTML.js"></script>
         <td><button id="btnHomeToLogin" sec:authorize="isAnonymous()" type="button" onclick="location.href='/user/login'">로그인</button>
@@ -21,8 +23,12 @@
     </th>
    </table>
     </header>
+    <div>
+    <h1>마이페이지</h1>
+    <div id="divMedicineInfo">
         <table id="tableProfile">
-            <tbody th:each="user:${users}" th:if="${user.id}==${#authentication.name}">
+            <tbody 
+            th:each="user:${users}" th:if="${user.id}==${#authentication.name}">
             <script id="scriptShowProfile" th:inline="javascript">
                 let val = [[${user}]]
                 var table = document.getElementById("tableProfile")
@@ -58,6 +64,7 @@
         <br>
         <br>
         <h4>TODAY</h4>
+        <p> 오늘 복용해야할 약 목록입니다.</p>
         <hr>
         <table id="tableProfileToday">
             <tbody>
@@ -85,6 +92,9 @@
             </tbody>
         </table>
     </div>
+</div>
+
+
     <script>
         document.getElementById("tdInputProfile").classList.add("notShow")
         document.getElementById("tdBtnProfileUpdate2").classList.add("notShow")

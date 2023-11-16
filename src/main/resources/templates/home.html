@@ -9,18 +9,39 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ775iR6S9X6CneXx6IVj3cwFnd32ydZ/IJo" crossorigin="anonymous">
    <link rel="stylesheet" href="/css/header.css">  
-    <!--<script src="/js/includeHTML.js"></script> -->
+
     <title>Home</title>
 </head>
 <body>
+
     <header class="top_bar">
         <script src="/js/includeHTML.js"></script>
         <td><button id="btnHomeToLogin" sec:authorize="isAnonymous()" type="button" onclick="location.href='/user/login'">로그인</button>
             <button id="btnHomeToSignup" sec:authorize="isAuthenticated()" type="button" onclick="location.href='/user/logout'">로그아웃</button></t>
         
     </th>
-   </table>
+</table>
     </header>
+    <!-- <button class="dropdown-button">menu</button> -->
+
+
+    </header>
+   <!-- <div class="dropdown">
+        <button id="menu" onclick="">menu</button>
+    <div class="dropdown-content">
+       <ul> 
+            <li><a type="button" id="btnHome" onclick="location.href='/home/'">HOME </a></li>
+            <li><a  id="btnHomeToCalendar" type="button" onclick="location.href='/calendar/'">달력</a></li>
+            <li><a  id="btnHomeToMedicineBox" type="button" onclick="location.href='/medicineBox/'">지도-수거함</a></li>
+            <li><a id="btnHomeToPharmacy" type="button" onclick="location.href='/pharmacy/'">지도-약국</a></li>
+            <li><a id="btnHomeToChat" type="button" onclick="location.href='/chat/'">Q&A</a></li>
+            <li><a id="btnMyPage" type="button" onclick="location.href='/profile/'">마이페이지</a></li>
+    </ul>
+    </div>
+-->
+
+</div>
+
 
 <!--    <p id="userId" sec:authorize="isAuthenticated()" th:text="${#authentication.name}" onclick="location.href='/profile'"></p>-->
     <div class="container" style="height: 500px;">

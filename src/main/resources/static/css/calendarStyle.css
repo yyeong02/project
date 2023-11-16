@@ -51,23 +51,57 @@ button {
     box-shadow: 0 30px 30px -25px var(--c-cold-purple);
 
 }
-#divCalendarInfo{ 
+#divCalendarInfo, #divMedicineInfo{ 
     border-radius: 16px;
     box-shadow: 0 30px 30px -25px var(--c-cold-purple);
     min-width: 320px;
     height: 550px;
-    float: right;
+
     background-color: #d1deff;
     text-align: center;
     padding-bottom: 10px;
 }
-#divCalendarInfo table{
+#tableProfile{
+    margin: 2rem auto;
+    font-size: 1.3em;
+}
+#divMedicineInfo{
+    width: 80%;
+    margin: 2em auto;
+}
+#tableShowCalendar, #tableProfile{
+    background-color: #FFFFFF;
+    width:80%;
+    margin: 4em auto;
+    font-size: 1.3em;
+    
+}
+#tableShowCalendar th{
+    background-color: var(--c-titan-white);
+    width: 40%;
+    height: max-content;
+}
+#tableShowCalendar tr{
+    width:80%;
+    height: fit-content;
+}
+#tableShowCalendar td{
+    height: fit-content;
+}
+
+
+#divCalendarInfo table, #tableProfileToday{
     width: 96%;
     min-width: 320px;
     margin: 0 auto;
     background-color: #FFFFFF;
     margin-bottom: 10px;
-    font-size: 15px;
+    font-size: 1.5rem;
+}
+#btnExit{
+    margin: 1em;
+
+
 }
 #divCalendarInfoYear, #divCalendarInfoDate{
     text-align: center;
@@ -162,14 +196,9 @@ button {
     border-radius: 50px;
     padding: 4px 6px 4px 6px;
 }
-#tableCalanderInfo thead{
-    width: 100%;
-    color:var(--c-cold-purple)
-}
-#tableCalanderInfo tr{
 
-    color:var(--c-cold-purple)
-}
+
+
 
 /* 달력 날짜 선택시 추가 정보 ------------- */
 #divCalendarInfo h3{
@@ -189,6 +218,9 @@ button {
     
 }
 
+.wrapper{
+    width: 80%;
+}
 /* 선택 날짜에 따른 의약품 목록 보이기 ----- */
 .notShow{
     display: none;
@@ -214,14 +246,13 @@ button {
         width: 100%;
         margin: 2em auto;
         margin-top: 6em;
-        position: static;
         font-size: 1em;
-
+        
     }
     #divCalendarInfo{ 
         width: 100%;
         margin: 2em auto;
-        position: relative;
+        float: inline-end;
     }  
 }
   
@@ -236,5 +267,6 @@ button {
     #divCalendarInfo{ 
         margin: 2em auto;
         width: 45%;
+        float: right;
     }  
     }

@@ -16,7 +16,7 @@
   }
 button{
     font-family: 'Noto Sans KR', sans-serif;
-    font-size: 1rem;
+    font-size: 1em;
     line-height: 1;
     background-color: var(--c-white);
     border: 2px solid var(--c-indigo);
@@ -25,7 +25,7 @@ button{
     margin-bottom: 10px;
     border-radius: 6px;
     font-weight: 500;
-    display: inline-flex;
+    display: inline-block;
     align-items: center;
     justify-content: space-between;
     gap: 0.5rem;
@@ -34,7 +34,11 @@ button{
       background-color: var(--c-indigo);
       color: var(--c-white);
     }
+
   }
+#buttons button{
+  font-size: 1.2em
+}
 
   .container{
     width: 80%;
@@ -42,6 +46,10 @@ button{
     padding: 10px;
 
 }
+a{
+  display: block;
+}
+
 
 .wrapper{
     width: auto;
@@ -62,7 +70,15 @@ button{
   h3{
     font-size: 1.2em;
   }
+  h4{
+    font-size: 1.1em;
   }
+
+  
+  }
+
+
+
 
 
  @media screen and (min-width: 736px) {
@@ -79,4 +95,5 @@ button{
   h3{
     font-size: 2em;
   }
+
   }
